@@ -9,7 +9,7 @@ public class Agent1 : Agent
 {
     Rigidbody rBody;
     private float timer = 0f;           // Timer variable to track elapsed time
-    [SerializeField] float maxTimePerEpisode = 5f;  // Maximum time allowed per episode (in seconds)
+    [SerializeField] float maxTimePerEpisode = 7f;  // Maximum time allowed per episode (in seconds)
     [SerializeField] public Transform Target; // The target object
     [SerializeField] float forceMultiplier = 3;
     void Start () {
@@ -55,6 +55,7 @@ public class Agent1 : Agent
         timer += Time.deltaTime;
         if (timer > maxTimePerEpisode)
         {
+            SetReward(-0.5f);
             EndEpisode();
         }
         // Fell off platform

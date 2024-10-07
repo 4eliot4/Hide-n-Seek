@@ -1,0 +1,29 @@
+{
+    "Catcher": {
+        "checkpoints": [
+            {
+                "steps": 32305,
+                "file_path": "results/Ball1/Catcher/Catcher-32305.onnx",
+                "reward": -0.359375,
+                "creation_time": 1728324163.199361,
+                "auxillary_file_paths": [
+                    "results/Ball1/Catcher/Catcher-32305.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 32305,
+            "file_path": "results/Ball1/Catcher.onnx",
+            "reward": -0.359375,
+            "creation_time": 1728324163.199361,
+            "auxillary_file_paths": [
+                "results/Ball1/Catcher/Catcher-32305.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "1.0.0",
+        "torch_version": "1.13.1"
+    }
+}
