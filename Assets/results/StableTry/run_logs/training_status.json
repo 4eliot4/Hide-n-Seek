@@ -1,0 +1,29 @@
+{
+    "Catcher": {
+        "checkpoints": [
+            {
+                "steps": 60487,
+                "file_path": "results/StableTry/Catcher/Catcher-60487.onnx",
+                "reward": 0.0,
+                "creation_time": 1728229872.7459168,
+                "auxillary_file_paths": [
+                    "results/StableTry/Catcher/Catcher-60487.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 60487,
+            "file_path": "results/StableTry/Catcher.onnx",
+            "reward": 0.0,
+            "creation_time": 1728229872.7459168,
+            "auxillary_file_paths": [
+                "results/StableTry/Catcher/Catcher-60487.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "1.0.0",
+        "torch_version": "1.13.1"
+    }
+}
