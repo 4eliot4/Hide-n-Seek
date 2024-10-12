@@ -1,0 +1,49 @@
+{
+    "name": "root",
+    "metadata": {
+        "timer_format_version": "0.1.0",
+        "start_time_seconds": "1728771260",
+        "python_version": "3.10.12 (main, Jul  5 2023, 15:02:25) [Clang 14.0.6 ]",
+        "command_line_arguments": "/opt/anaconda3/envs/mlagents_AA/bin/mlagents-learn Policies/hidenseek.yaml --run-id=firsthidenseek --resume",
+        "mlagents_version": "1.0.0",
+        "mlagents_envs_version": "1.0.0",
+        "communication_protocol_version": "1.5.0",
+        "pytorch_version": "1.13.1",
+        "numpy_version": "1.21.2",
+        "end_time_seconds": "1728771286"
+    },
+    "total": 26.852021208993392,
+    "count": 1,
+    "self": 0.024373708962230012,
+    "children": {
+        "run_training.setup": {
+            "total": 0.01851870902464725,
+            "count": 1,
+            "self": 0.01851870902464725
+        },
+        "TrainerController.start_learning": {
+            "total": 26.809128791006515,
+            "count": 1,
+            "self": 0.00015387401799671352,
+            "children": {
+                "TrainerController._reset_env": {
+                    "total": 26.57420341699617,
+                    "count": 1,
+                    "self": 26.57420341699617
+                },
+                "TrainerController._save_models": {
+                    "total": 0.23477149999234825,
+                    "count": 1,
+                    "self": 0.0006758749950677156,
+                    "children": {
+                        "RLTrainer._checkpoint": {
+                            "total": 0.23409562499728054,
+                            "count": 1,
+                            "self": 0.23409562499728054
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

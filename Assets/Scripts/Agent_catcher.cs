@@ -10,6 +10,7 @@ public class Agent1 : Agent
     Rigidbody rBody;
     private float timer = 0f;           // Timer variable to track elapsed time
     [SerializeField] float maxTimePerEpisode = 20f;  // Maximum time allowed per episode (in seconds)
+    [SerializeField] System.String TargetTag = "Hider"; // The target object
     private Transform Target; // The target object
     private Transform AgentArea;
     [SerializeField] float forceMultiplier = 3;
@@ -18,6 +19,7 @@ public class Agent1 : Agent
     public Animator anim;  // Reference to the Animator
     public MovementInput movementInput;  // Reference to the MovementInput script
       // Define animation smoothing times similar to the MovementInput script
+    private Vector3 lastPosition;
     [Header("Animation Smoothing")]
     [Range(0, 1f)]
     public float HorizontalAnimSmoothTime = 0.2f;
@@ -29,14 +31,14 @@ public class Agent1 : Agent
         anim = GetComponent<Animator>();
         movementInput = GetComponent<MovementInput>();  // Get the MovementInput component
         AgentArea = transform.parent;
-        Target = AgentArea.Find("Target");
+        Target = AgentArea.Find(TargetTag);
     }
 
     
     public override void OnEpisodeBegin()
     {
        // Move the target to a new spot
-        Target.localPosition = new Vector3(Random.value * 8 - 4,0.5f,Random.value * 8 - 4); // local position with respect to the parent object
+        // local position with respect to the parent object
         this.transform.localPosition = new Vector3(Random.value * 8 - 4,0.5f,Random.value * 8 - 4);
 
         rBody.velocity = Vector3.zero;  // Reset the velocity
@@ -81,16 +83,29 @@ public class Agent1 : Agent
             EndEpisode();
         }
         // Fell off platform
-        else 
-        {
-            AddReward(-distanceToTarget * 0.005f);  // Negative reward based on distance
+        
+        float previousDistance = Vector3.Distance(lastPosition, Target.position);
+        float currentDistance = Vector3.Distance(this.transform.localPosition, Target.localPosition);
+
+        if (currentDistance < previousDistance) {
+            AddReward(0.1f);  // Give reward for getting closer
+        } else {
+            AddReward(-0.1f); // Penalize for moving further away
         }
+        if (Vector3.Distance(lastPosition, this.transform.localPosition) < 0.01f)
+        {
+            SetReward(-0.1f); // Penalize for being idle
+        }
+
+
+        lastPosition = this.transform.localPosition;  
         timer += Time.deltaTime;  // Increment the timer
         if (timer > maxTimePerEpisode)
         {
             SetReward(-1.0f); // Optional: Give a negative reward for taking too long
             EndEpisode();
         }
+
         
     }
     public override void Heuristic(in ActionBuffers actionsOut)

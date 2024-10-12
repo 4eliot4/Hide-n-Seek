@@ -18,15 +18,24 @@
                 "auxillary_file_paths": [
                     "results/multiple_agents/JammoCatcher/JammoCatcher-277324.pt"
                 ]
+            },
+            {
+                "steps": 391602,
+                "file_path": "results/multiple_agents/JammoCatcher/JammoCatcher-391602.onnx",
+                "reward": 8.64036312849162,
+                "creation_time": 1728753102.458262,
+                "auxillary_file_paths": [
+                    "results/multiple_agents/JammoCatcher/JammoCatcher-391602.pt"
+                ]
             }
         ],
         "final_checkpoint": {
-            "steps": 277324,
+            "steps": 391602,
             "file_path": "results/multiple_agents/JammoCatcher.onnx",
-            "reward": -0.25081558452927377,
-            "creation_time": 1728747641.5612679,
+            "reward": 8.64036312849162,
+            "creation_time": 1728753102.458262,
             "auxillary_file_paths": [
-                "results/multiple_agents/JammoCatcher/JammoCatcher-277324.pt"
+                "results/multiple_agents/JammoCatcher/JammoCatcher-391602.pt"
             ]
         }
     },

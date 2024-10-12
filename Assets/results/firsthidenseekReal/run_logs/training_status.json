@@ -1,0 +1,69 @@
+{
+    "JammoHider": {
+        "checkpoints": [
+            {
+                "steps": 91560,
+                "file_path": "results/firsthidenseekReal/JammoHider/JammoHider-91560.onnx",
+                "reward": -17.85102203731634,
+                "creation_time": 1728771959.666223,
+                "auxillary_file_paths": [
+                    "results/firsthidenseekReal/JammoHider/JammoHider-91560.pt"
+                ]
+            },
+            {
+                "steps": 235133,
+                "file_path": "results/firsthidenseekReal/JammoHider/JammoHider-235133.onnx",
+                "reward": -17.71154004822557,
+                "creation_time": 1728772681.828253,
+                "auxillary_file_paths": [
+                    "results/firsthidenseekReal/JammoHider/JammoHider-235133.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 235133,
+            "file_path": "results/firsthidenseekReal/JammoHider.onnx",
+            "reward": -17.71154004822557,
+            "creation_time": 1728772681.828253,
+            "auxillary_file_paths": [
+                "results/firsthidenseekReal/JammoHider/JammoHider-235133.pt"
+            ]
+        }
+    },
+    "JammoCatcher": {
+        "checkpoints": [
+            {
+                "steps": 91575,
+                "file_path": "results/firsthidenseekReal/JammoCatcher/JammoCatcher-91575.onnx",
+                "reward": 91.38958331445853,
+                "creation_time": 1728771959.84016,
+                "auxillary_file_paths": [
+                    "results/firsthidenseekReal/JammoCatcher/JammoCatcher-91575.pt"
+                ]
+            },
+            {
+                "steps": 235199,
+                "file_path": "results/firsthidenseekReal/JammoCatcher/JammoCatcher-235199.onnx",
+                "reward": null,
+                "creation_time": 1728772681.856118,
+                "auxillary_file_paths": [
+                    "results/firsthidenseekReal/JammoCatcher/JammoCatcher-235199.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 235199,
+            "file_path": "results/firsthidenseekReal/JammoCatcher.onnx",
+            "reward": null,
+            "creation_time": 1728772681.856118,
+            "auxillary_file_paths": [
+                "results/firsthidenseekReal/JammoCatcher/JammoCatcher-235199.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "1.0.0",
+        "torch_version": "1.13.1"
+    }
+}
