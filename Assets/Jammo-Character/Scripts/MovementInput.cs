@@ -62,9 +62,11 @@ public class MovementInput : MonoBehaviour {
 
     }
 
-    void PlayerMoveAndRotation() {
-		InputX = Input.GetAxis ("Horizontal");
-		InputZ = Input.GetAxis ("Vertical");
+	
+
+    public void PlayerMoveAndRotation() {
+		//InputX = Input.GetAxis ("Horizontal");
+		//InputZ = Input.GetAxis ("Vertical");
 
 		var camera = Camera.main;
 		var forward = cam.transform.forward;
@@ -103,8 +105,8 @@ public class MovementInput : MonoBehaviour {
 
 	void InputMagnitude() {
 		//Calculate Input Vectors
-		InputX = Input.GetAxis ("Horizontal");
-		InputZ = Input.GetAxis ("Vertical");
+		//InputX = Input.GetAxis ("Horizontal");
+		//InputZ = Input.GetAxis ("Vertical");
 
 		//anim.SetFloat ("InputZ", InputZ, VerticalAnimTime, Time.deltaTime * 2f);
 		//anim.SetFloat ("InputX", InputX, HorizontalAnimSmoothTime, Time.deltaTime * 2f);

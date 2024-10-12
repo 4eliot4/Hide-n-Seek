@@ -5,7 +5,7 @@ using Unity.MLAgents;
 using Unity.MLAgents.Sensors; 
 using Unity.MLAgents.Actuators;
 
-public class Agent1 : Agent
+public class Agent_catcher_basic : Agent
 {
     Rigidbody rBody;
     private float timer = 0f;           // Timer variable to track elapsed time
@@ -14,21 +14,10 @@ public class Agent1 : Agent
     [SerializeField] float forceMultiplier = 3;
     public float InputX;
     public float InputZ;
-    public Animator anim;  // Reference to the Animator
-    public MovementInput movementInput;  // Reference to the MovementInput script
-      // Define animation smoothing times similar to the MovementInput script
-    [Header("Animation Smoothing")]
-    [Range(0, 1f)]
-    public float HorizontalAnimSmoothTime = 0.2f;
-    [Range(0, 1f)]
-    public float VerticalAnimTime = 0.2f;
+    
 
     void Start () {
         rBody = GetComponent<Rigidbody>(); // Get the Rigidbody component in ordee to apply forces, reset velocity...
-        anim = GetComponent<Animator>();
-        movementInput = GetComponent<MovementInput>();  // Get the MovementInput component
-
-        
     }
 
     
@@ -47,8 +36,8 @@ public class Agent1 : Agent
     sensor.AddObservation(this.transform.localPosition); // agent position
 
     // Agent velocity
-    //sensor.AddObservation(rBody.velocity.x);
-    //sensor.AddObservation(rBody.velocity.z);
+    sensor.AddObservation(rBody.velocity.x);
+    sensor.AddObservation(rBody.velocity.z);
     // therefore we have 8 continuous observations
     }
     
@@ -58,19 +47,13 @@ public class Agent1 : Agent
         Vector3 controlSignal = Vector3.zero;
         controlSignal.x = actionBuffers.ContinuousActions[0];  // continuous action 0 mapping, we have 2 continuous actions in editor behaviour parameters.
         controlSignal.z = actionBuffers.ContinuousActions[1];
-        // rBody.AddForce(controlSignal * forceMultiplier); // this actually defines the continuous by applying force to the agent.
-        InputX = controlSignal.x;
-        InputZ = controlSignal.z;
-        // Animate based on network-provided input
-        anim.SetFloat("InputX", InputX, HorizontalAnimSmoothTime, Time.deltaTime);
-        anim.SetFloat("InputZ", InputZ, VerticalAnimTime, Time.deltaTime);
+        rBody.AddForce(controlSignal * forceMultiplier); // this actually defines the continuous by applying force to the agent.
+        
+        
 
         // Rewards
         float distanceToTarget = Vector3.Distance(this.transform.localPosition, Target.localPosition);
         
-        movementInput.InputX = InputX;
-        movementInput.InputZ = InputZ;
-        movementInput.PlayerMoveAndRotation();
         // Reached target
         if (distanceToTarget < 1.42f)
         {

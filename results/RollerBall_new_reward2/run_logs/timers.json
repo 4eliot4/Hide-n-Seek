@@ -1,0 +1,49 @@
+{
+    "name": "root",
+    "metadata": {
+        "timer_format_version": "0.1.0",
+        "start_time_seconds": "1728740562",
+        "python_version": "3.10.12 (main, Jul  5 2023, 15:02:25) [Clang 14.0.6 ]",
+        "command_line_arguments": "/opt/anaconda3/envs/mlagents_AA/bin/mlagents-learn Assets/Policies/hidenseek.yaml --run-id=RollerBall_new_reward2 --resume",
+        "mlagents_version": "1.0.0",
+        "mlagents_envs_version": "1.0.0",
+        "communication_protocol_version": "1.5.0",
+        "pytorch_version": "1.13.1",
+        "numpy_version": "1.21.2",
+        "end_time_seconds": "1728740574"
+    },
+    "total": 11.62123433398665,
+    "count": 1,
+    "self": 0.01986133400350809,
+    "children": {
+        "run_training.setup": {
+            "total": 0.018007207982009277,
+            "count": 1,
+            "self": 0.018007207982009277
+        },
+        "TrainerController.start_learning": {
+            "total": 11.583365792001132,
+            "count": 1,
+            "self": 0.0001307500060647726,
+            "children": {
+                "TrainerController._reset_env": {
+                    "total": 11.382066457998008,
+                    "count": 1,
+                    "self": 11.382066457998008
+                },
+                "TrainerController._save_models": {
+                    "total": 0.2011685839970596,
+                    "count": 1,
+                    "self": 0.0008877920045051724,
+                    "children": {
+                        "RLTrainer._checkpoint": {
+                            "total": 0.20028079199255444,
+                            "count": 1,
+                            "self": 0.20028079199255444
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
