@@ -10,7 +10,8 @@ public class Agent1 : Agent
     Rigidbody rBody;
     private float timer = 0f;           // Timer variable to track elapsed time
     [SerializeField] float maxTimePerEpisode = 20f;  // Maximum time allowed per episode (in seconds)
-    [SerializeField] public Transform Target; // The target object
+    private Transform Target; // The target object
+    private Transform AgentArea;
     [SerializeField] float forceMultiplier = 3;
     public float InputX;
     public float InputZ;
@@ -27,18 +28,19 @@ public class Agent1 : Agent
         rBody = GetComponent<Rigidbody>(); // Get the Rigidbody component in ordee to apply forces, reset velocity...
         anim = GetComponent<Animator>();
         movementInput = GetComponent<MovementInput>();  // Get the MovementInput component
-
-        
+        AgentArea = transform.parent;
+        Target = AgentArea.Find("Target");
     }
 
     
     public override void OnEpisodeBegin()
     {
        // Move the target to a new spot
-        Target.localPosition = new Vector3(Random.value * 8 - 4,0.5f,Random.value * 8 - 4);
+        Target.localPosition = new Vector3(Random.value * 8 - 4,0.5f,Random.value * 8 - 4); // local position with respect to the parent object
         this.transform.localPosition = new Vector3(Random.value * 8 - 4,0.5f,Random.value * 8 - 4);
 
         rBody.velocity = Vector3.zero;  // Reset the velocity
+        timer = 0f;
     }
     public override void CollectObservations(VectorSensor sensor)
     {
@@ -71,6 +73,7 @@ public class Agent1 : Agent
         movementInput.InputX = InputX;
         movementInput.InputZ = InputZ;
         movementInput.PlayerMoveAndRotation();
+        movementInput.InputMagnitude();
         // Reached target
         if (distanceToTarget < 1.42f)
         {
@@ -80,7 +83,7 @@ public class Agent1 : Agent
         // Fell off platform
         else 
         {
-            AddReward(-distanceToTarget * 0.01f);  // Negative reward based on distance
+            AddReward(-distanceToTarget * 0.005f);  // Negative reward based on distance
         }
         timer += Time.deltaTime;  // Increment the timer
         if (timer > maxTimePerEpisode)

@@ -45,7 +45,7 @@ public class MovementInput : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		InputMagnitude ();
+		//InputMagnitude ();
 
         isGrounded = controller.isGrounded;
         if (isGrounded)
@@ -103,7 +103,7 @@ public class MovementInput : MonoBehaviour {
         t.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(desiredMoveDirection), desiredRotationSpeed);
     }
 
-	void InputMagnitude() {
+	public void InputMagnitude() {
 		//Calculate Input Vectors
 		//InputX = Input.GetAxis ("Horizontal");
 		//InputZ = Input.GetAxis ("Vertical");

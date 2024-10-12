@@ -1,0 +1,29 @@
+{
+    "JammoCatcher": {
+        "checkpoints": [
+            {
+                "steps": 45631,
+                "file_path": "results/kaka-2/JammoCatcher/JammoCatcher-45631.onnx",
+                "reward": null,
+                "creation_time": 1728746181.041043,
+                "auxillary_file_paths": [
+                    "results/kaka-2/JammoCatcher/JammoCatcher-45631.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 45631,
+            "file_path": "results/kaka-2/JammoCatcher.onnx",
+            "reward": null,
+            "creation_time": 1728746181.041043,
+            "auxillary_file_paths": [
+                "results/kaka-2/JammoCatcher/JammoCatcher-45631.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "1.0.0",
+        "torch_version": "1.13.1"
+    }
+}
