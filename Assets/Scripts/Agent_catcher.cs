@@ -82,11 +82,12 @@ public class Agent1 : Agent
         {
             AddReward(-distanceToTarget * 0.01f);  // Negative reward based on distance
         }
-         if (timer > maxTimePerEpisode)
-         {
+        timer += Time.deltaTime;  // Increment the timer
+        if (timer > maxTimePerEpisode)
+        {
             SetReward(-1.0f); // Optional: Give a negative reward for taking too long
             EndEpisode();
-         }
+        }
         
     }
     public override void Heuristic(in ActionBuffers actionsOut)
