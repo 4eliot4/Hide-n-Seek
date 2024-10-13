@@ -1,0 +1,51 @@
+{
+    "JammoHider": {
+        "checkpoints": [
+            {
+                "steps": 279008,
+                "file_path": "results/HidenSeek_Manager_V2/JammoHider/JammoHider-279008.onnx",
+                "reward": -21.17627255997415,
+                "creation_time": 1728830697.127203,
+                "auxillary_file_paths": [
+                    "results/HidenSeek_Manager_V2/JammoHider/JammoHider-279008.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 279008,
+            "file_path": "results/HidenSeek_Manager_V2/JammoHider.onnx",
+            "reward": -21.17627255997415,
+            "creation_time": 1728830697.127203,
+            "auxillary_file_paths": [
+                "results/HidenSeek_Manager_V2/JammoHider/JammoHider-279008.pt"
+            ]
+        }
+    },
+    "JammoCatcher": {
+        "checkpoints": [
+            {
+                "steps": 279008,
+                "file_path": "results/HidenSeek_Manager_V2/JammoCatcher/JammoCatcher-279008.onnx",
+                "reward": 60.51016905853304,
+                "creation_time": 1728830697.1543648,
+                "auxillary_file_paths": [
+                    "results/HidenSeek_Manager_V2/JammoCatcher/JammoCatcher-279008.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 279008,
+            "file_path": "results/HidenSeek_Manager_V2/JammoCatcher.onnx",
+            "reward": 60.51016905853304,
+            "creation_time": 1728830697.1543648,
+            "auxillary_file_paths": [
+                "results/HidenSeek_Manager_V2/JammoCatcher/JammoCatcher-279008.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "1.0.0",
+        "torch_version": "1.13.1"
+    }
+}

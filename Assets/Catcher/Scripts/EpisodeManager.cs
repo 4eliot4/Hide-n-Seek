@@ -4,14 +4,37 @@ using UnityEngine;
 
 public class EpisodeManager : MonoBehaviour
 {
-    [SerializeField] System.String HiderTag = "Hider";
-    [SerializeField] System.String Catcher = "Catcher";
-    private Agent_hider hiderAgent;
-    private Agent1 catcherAgent;
-    // Start is called before the first frame update
-    public void EndEpisodeForBothAgents()
+    
+    [SerializeField] Agent_hider hiderAgent;
+    [SerializeField] Agent1 catcherAgent;
+    private bool episodeEnded = false;
+    void Start()
     {
+       
+    }
+    
+    // Start is called before the first frame update
+    public void EndEpisodeForBothAgents(bool HiderWin)
+    {
+        if (HiderWin)
+        {
+            hiderAgent.AddReward(1.0f);
+            catcherAgent.AddReward(-1.0f);
+        }
+        else
+        {
+            hiderAgent.AddReward(-1.0f);
+            catcherAgent.AddReward(1.0f);
+        }
         hiderAgent.EndEpisode();
         catcherAgent.EndEpisode();
+        episodeEnded = true;
+            
+    }   
+
+    public void resetEpisode()
+    {
+        episodeEnded = false;
     }
+        
 }

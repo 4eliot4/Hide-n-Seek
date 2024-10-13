@@ -7,6 +7,7 @@ using Unity.MLAgents.Actuators;
 
 public class Agent1 : Agent
 {
+    public EpisodeManager episodeManager;
     Rigidbody rBody;
     private float timer = 0f;           // Timer variable to track elapsed time
     [SerializeField] float maxTimePerEpisode = 20f;  // Maximum time allowed per episode (in seconds)
@@ -32,6 +33,10 @@ public class Agent1 : Agent
         movementInput = GetComponent<MovementInput>();  // Get the MovementInput component
         AgentArea = transform.parent;
         Target = AgentArea.Find(TargetTag);
+        if (Target == null)
+        {
+            Debug.LogError("Target Catcher not found! Make sure the target is assigned and tagged correctly.");
+        }
     }
 
     
@@ -39,7 +44,8 @@ public class Agent1 : Agent
     {
        // Move the target to a new spot
         // local position with respect to the parent object
-        this.transform.localPosition = new Vector3(Random.value * 8 - 4,0.5f,Random.value * 8 - 4);
+        episodeManager.resetEpisode();
+        this.transform.localPosition = new Vector3(Random.value * 10 - 4,0.5f,Random.value * 10 - 4);
 
         rBody.velocity = Vector3.zero;  // Reset the velocity
         timer = 0f;
@@ -79,8 +85,7 @@ public class Agent1 : Agent
         // Reached target
         if (distanceToTarget < 1.42f)
         {
-            SetReward(1.0f);
-            EndEpisode();
+            episodeManager.EndEpisodeForBothAgents(false); // false -> catcher wins
         }
         // Fell off platform
         
@@ -102,8 +107,7 @@ public class Agent1 : Agent
         timer += Time.deltaTime;  // Increment the timer
         if (timer > maxTimePerEpisode)
         {
-            SetReward(-1.0f); // Optional: Give a negative reward for taking too long
-            EndEpisode();
+            episodeManager.EndEpisodeForBothAgents(true); // true -> catcher loose 
         }
 
         
