@@ -54,7 +54,7 @@ public class MovementInput : MonoBehaviour {
         }
         else
         {
-            verticalVel -= 1;
+            verticalVel += Physics.gravity.y * Time.deltaTime; // Apply gravity over time
         }
         moveVector = new Vector3(0, verticalVel * .2f * Time.deltaTime, 0);
         controller.Move(moveVector);
@@ -68,22 +68,23 @@ public class MovementInput : MonoBehaviour {
 		//InputX = Input.GetAxis ("Horizontal");
 		//InputZ = Input.GetAxis ("Vertical");
 
-		var camera = Camera.main;
-		var forward = cam.transform.forward;
-		var right = cam.transform.right;
-
-		forward.y = 0f;
-		right.y = 0f;
-
-		forward.Normalize ();
-		right.Normalize ();
+		var forward = Vector3.forward;
+		var right = Vector3.right;
 
 		desiredMoveDirection = forward * InputZ + right * InputX;
 
 		if (blockRotationPlayer == false) {
-			transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation (desiredMoveDirection), desiredRotationSpeed);
-            controller.Move(desiredMoveDirection * Time.deltaTime * Velocity);
+			if (desiredMoveDirection != Vector3.zero)
+			{
+				transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(desiredMoveDirection), desiredRotationSpeed);
+			}
+			controller.Move(desiredMoveDirection.normalized * Time.deltaTime * Velocity);
 		}
+		if (desiredMoveDirection != Vector3.zero && blockRotationPlayer == false) 
+		{
+			transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(desiredMoveDirection), desiredRotationSpeed);
+			controller.Move(desiredMoveDirection.normalized * Time.deltaTime * Velocity);
+    	}
 	}
 
     public void LookAt(Vector3 pos)
@@ -91,7 +92,7 @@ public class MovementInput : MonoBehaviour {
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(pos), desiredRotationSpeed);
     }
 
-    public void RotateToCamera(Transform t)
+    /* public void RotateToCamera(Transform t)
     {
 
         var camera = Camera.main;
@@ -102,6 +103,7 @@ public class MovementInput : MonoBehaviour {
 
         t.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(desiredMoveDirection), desiredRotationSpeed);
     }
+	*/
 
 	public void InputMagnitude() {
 		//Calculate Input Vectors
@@ -112,15 +114,19 @@ public class MovementInput : MonoBehaviour {
 		//anim.SetFloat ("InputX", InputX, HorizontalAnimSmoothTime, Time.deltaTime * 2f);
 
 		//Calculate the Input Magnitude
+		// Update animator parameters
+		anim.SetFloat("InputX", InputX, HorizontalAnimSmoothTime, Time.deltaTime);
+		anim.SetFloat("InputZ", InputZ, VerticalAnimTime, Time.deltaTime);
+
+		// Calculate the Input Magnitude (speed)
 		Speed = new Vector2(InputX, InputZ).sqrMagnitude;
 
-        //Physically move player
-
+		// Physically move player
 		if (Speed > allowPlayerRotation) {
-			anim.SetFloat ("Blend", Speed, StartAnimTime, Time.deltaTime);
-			PlayerMoveAndRotation ();
+			anim.SetFloat("Blend", Speed, StartAnimTime, Time.deltaTime);
+			PlayerMoveAndRotation();
 		} else if (Speed < allowPlayerRotation) {
-			anim.SetFloat ("Blend", Speed, StopAnimTime, Time.deltaTime);
+			anim.SetFloat("Blend", Speed, StopAnimTime, Time.deltaTime);
 		}
 	}
 }

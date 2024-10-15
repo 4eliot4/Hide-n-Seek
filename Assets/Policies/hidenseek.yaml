@@ -13,15 +13,15 @@ behaviors:
       beta_schedule: constant
       epsilon_schedule: linear
     network_settings:
-      normalize: false
+      normalize: true
       hidden_units: 256
       num_layers: 2
     reward_signals:
       extrinsic:
         gamma: 0.995
         strength: 1.0
-    max_steps: 500000
-    time_horizon: 64
+    max_steps: 5000000
+    time_horizon: 128
     summary_freq: 10000
 
   JammoHider:
@@ -38,7 +38,7 @@ behaviors:
       beta_schedule: constant
       epsilon_schedule: linear
     network_settings:
-      normalize: false
+      normalize: true
       hidden_units: 256
       num_layers: 2
     reward_signals:
@@ -46,5 +46,5 @@ behaviors:
         gamma: 0.995
         strength: 1.0
     max_steps: 5000000
-    time_horizon: 64
+    time_horizon: 128
     summary_freq: 10000

@@ -18,13 +18,13 @@ public class EpisodeManager : MonoBehaviour
     {
         if (HiderWin)
         {
-            hiderAgent.AddReward(1.0f);
+            hiderAgent.AddReward(2.0f);
             catcherAgent.AddReward(-1.0f);
         }
         else
         {
             hiderAgent.AddReward(-1.0f);
-            catcherAgent.AddReward(1.0f);
+            catcherAgent.AddReward(1f);
         }
         hiderAgent.EndEpisode();
         catcherAgent.EndEpisode();

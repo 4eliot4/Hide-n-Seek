@@ -53,7 +53,7 @@ public class Agent1 : Agent
     public override void CollectObservations(VectorSensor sensor)
     {
     // Target and Agent positions
-    sensor.AddObservation(Target.localPosition); // target position
+    //sensor.AddObservation(Target.localPosition); // target position
     sensor.AddObservation(this.transform.localPosition); // agent position
 
     // Agent velocity
@@ -72,9 +72,9 @@ public class Agent1 : Agent
         InputX = controlSignal.x;
         InputZ = controlSignal.z;
         // Animate based on network-provided input
-        anim.SetFloat("InputX", InputX, HorizontalAnimSmoothTime, Time.deltaTime);
-        anim.SetFloat("InputZ", InputZ, VerticalAnimTime, Time.deltaTime);
-
+                                //anim.SetFloat("InputX", InputX, HorizontalAnimSmoothTime, Time.deltaTime);
+                                //anim.SetFloat("InputZ", InputZ, VerticalAnimTime, Time.deltaTime);
+        
         // Rewards
         float distanceToTarget = Vector3.Distance(this.transform.localPosition, Target.localPosition);
         
@@ -99,7 +99,7 @@ public class Agent1 : Agent
         }
         if (Vector3.Distance(lastPosition, this.transform.localPosition) < 0.01f)
         {
-            SetReward(-0.1f); // Penalize for being idle
+            AddReward(-0.1f); // Penalize for being idle
         }
 
 

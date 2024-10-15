@@ -72,9 +72,9 @@ public class Agent_hider : Agent
         InputX = controlSignal.x;
         InputZ = controlSignal.z;
         // Animate based on network-provided input
-        anim.SetFloat("InputX", InputX, HorizontalAnimSmoothTime, Time.deltaTime);
-        anim.SetFloat("InputZ", InputZ, VerticalAnimTime, Time.deltaTime);
-
+                                        //anim.SetFloat("InputX", InputX, HorizontalAnimSmoothTime, Time.deltaTime);
+                                        //anim.SetFloat("InputZ", InputZ, VerticalAnimTime, Time.deltaTime);
+        
         // Rewards
         float distanceToTarget = Vector3.Distance(this.transform.localPosition, Target.localPosition);
         
@@ -94,15 +94,15 @@ public class Agent_hider : Agent
 
         if(previousDistance < currentDistance)
         {
-            SetReward(0.1f);
+            AddReward(0.01f);
         }
         else
         {
-            SetReward(-0.1f);
+            AddReward(-0.01f);
         }
         if (Vector3.Distance(lastPosition, this.transform.localPosition) < 0.01f)
         {
-            SetReward(-0.1f); // Penalize for being idle
+            AddReward(-0.01f); // Penalize for being idle
         }
 
         lastPosition = this.transform.localPosition;  
