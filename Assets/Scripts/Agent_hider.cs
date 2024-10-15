@@ -45,7 +45,7 @@ public class Agent_hider : Agent
     {
         episodeManager.resetEpisode();
         // local position with respect to the parent object
-        this.transform.localPosition = new Vector3(Random.value * 10 - 4,0.5f,Random.value * 10 - 4);
+        this.transform.localPosition = new Vector3(Random.value * 13 - 4,0.5f,Random.value * 13 - 4);
 
         rBody.velocity = Vector3.zero;  // Reset the velocity
         timer = 0f;

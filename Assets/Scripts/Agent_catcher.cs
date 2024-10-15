@@ -45,7 +45,7 @@ public class Agent1 : Agent
        // Move the target to a new spot
         // local position with respect to the parent object
         episodeManager.resetEpisode();
-        this.transform.localPosition = new Vector3(Random.value * 10 - 4,0.5f,Random.value * 10 - 4);
+        this.transform.localPosition = new Vector3(Random.value * 12 - 4,0.5f,Random.value * 12 - 4);
 
         rBody.velocity = Vector3.zero;  // Reset the velocity
         timer = 0f;
