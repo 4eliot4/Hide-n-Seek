@@ -93,13 +93,13 @@ public class Agent1 : Agent
         float currentDistance = Vector3.Distance(this.transform.localPosition, Target.localPosition);
 
         if (currentDistance < previousDistance) {
-            AddReward(0.1f);  // Give reward for getting closer
+            AddReward(0.01f);  // Give reward for getting closer
         } else {
-            AddReward(-0.1f); // Penalize for moving further away
+            AddReward(-0.01f); // Penalize for moving further away
         }
         if (Vector3.Distance(lastPosition, this.transform.localPosition) < 0.01f)
         {
-            AddReward(-0.1f); // Penalize for being idle
+            AddReward(-0.01f); // Penalize for being idle
         }
 
 
