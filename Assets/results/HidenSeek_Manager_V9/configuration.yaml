@@ -112,7 +112,7 @@ checkpoint_settings:
   run_id: HidenSeek_Manager_V9
   initialize_from: null
   load_model: false
-  resume: false
+  resume: true
   force: false
   train_model: false
   inference: false
