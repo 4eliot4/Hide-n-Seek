@@ -28,6 +28,11 @@ public class Agent_hider : Agent
         {
             Debug.LogError("Target Catcher not found! Make sure the target is assigned and tagged correctly.");
         }
+        if (episodeManager == null)
+        {
+            Debug.LogError("EpisodeManager not assigned! Make sure to assign it in the Inspector.");
+        }
+
     }
 
     
@@ -35,7 +40,7 @@ public class Agent_hider : Agent
     {
         episodeManager.resetEpisode();
         // local position with respect to the parent object
-        this.transform.localPosition = new Vector3(Random.value * 13 - 4,0.5f,Random.value * 13 - 4);
+        this.transform.localPosition = new Vector3(Random.value * 15 - 4,0.5f,Random.value * 15 - 4);
 
         
         timer = 0f;

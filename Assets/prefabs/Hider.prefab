@@ -226,10 +226,10 @@ MonoBehaviour:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
-  episodeManager: {fileID: 241022650148817284, guid: 7f6ed4ccc4b224916bb1e5e11b5ce171, type: 3}
-  maxTimePerEpisode: 30
+  episodeManager: {fileID: 0}
+  maxTimePerEpisode: 25
   TargetTag: Catcher
-  speed: 5
+  speed: 1
 --- !u!114 &103997083797403964
 MonoBehaviour:
   m_ObjectHideFlags: 0

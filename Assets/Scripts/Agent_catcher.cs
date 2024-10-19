@@ -31,6 +31,10 @@ public class Agent1 : Agent
         {
             Debug.LogError("Target Catcher not found! Make sure the target is assigned and tagged correctly.");
         }
+        if (episodeManager == null)
+        {
+            Debug.LogError("EpisodeManager not assigned! Make sure to assign it in the Inspector.");
+        }
     }
 
     

@@ -1,0 +1,69 @@
+{
+    "JammoHider": {
+        "checkpoints": [
+            {
+                "steps": 10496,
+                "file_path": "results/HidenSeek_SimplerV1/JammoHider/JammoHider-10496.onnx",
+                "reward": null,
+                "creation_time": 1729345264.1870599,
+                "auxillary_file_paths": [
+                    "results/HidenSeek_SimplerV1/JammoHider/JammoHider-10496.pt"
+                ]
+            },
+            {
+                "steps": 23936,
+                "file_path": "results/HidenSeek_SimplerV1/JammoHider/JammoHider-23936.onnx",
+                "reward": null,
+                "creation_time": 1729345460.973859,
+                "auxillary_file_paths": [
+                    "results/HidenSeek_SimplerV1/JammoHider/JammoHider-23936.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 23936,
+            "file_path": "results/HidenSeek_SimplerV1/JammoHider.onnx",
+            "reward": null,
+            "creation_time": 1729345460.973859,
+            "auxillary_file_paths": [
+                "results/HidenSeek_SimplerV1/JammoHider/JammoHider-23936.pt"
+            ]
+        }
+    },
+    "JammoCatcher": {
+        "checkpoints": [
+            {
+                "steps": 10496,
+                "file_path": "results/HidenSeek_SimplerV1/JammoCatcher/JammoCatcher-10496.onnx",
+                "reward": null,
+                "creation_time": 1729345264.213971,
+                "auxillary_file_paths": [
+                    "results/HidenSeek_SimplerV1/JammoCatcher/JammoCatcher-10496.pt"
+                ]
+            },
+            {
+                "steps": 23936,
+                "file_path": "results/HidenSeek_SimplerV1/JammoCatcher/JammoCatcher-23936.onnx",
+                "reward": null,
+                "creation_time": 1729345460.937959,
+                "auxillary_file_paths": [
+                    "results/HidenSeek_SimplerV1/JammoCatcher/JammoCatcher-23936.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 23936,
+            "file_path": "results/HidenSeek_SimplerV1/JammoCatcher.onnx",
+            "reward": null,
+            "creation_time": 1729345460.937959,
+            "auxillary_file_paths": [
+                "results/HidenSeek_SimplerV1/JammoCatcher/JammoCatcher-23936.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "1.0.0",
+        "torch_version": "1.13.1"
+    }
+}
