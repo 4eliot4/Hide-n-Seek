@@ -14,23 +14,17 @@ public class Agent1 : Agent
     [SerializeField] System.String TargetTag = "Hider"; // The target object
     private Transform Target; // The target object
     private Transform AgentArea;
-    [SerializeField] float forceMultiplier = 3;
-    public float InputX;
-    public float InputZ;
-    public Animator anim;  // Reference to the Animator
-    public MovementInput movementInput;  // Reference to the MovementInput script
+    [SerializeField] float speed = 5f;
+
+    
+    
       // Define animation smoothing times similar to the MovementInput script
     private Vector3 lastPosition;
-    [Header("Animation Smoothing")]
-    [Range(0, 1f)]
-    public float HorizontalAnimSmoothTime = 0.2f;
-    [Range(0, 1f)]
-    public float VerticalAnimTime = 0.2f;
+    
 
     void Start () {
         rBody = GetComponent<Rigidbody>(); // Get the Rigidbody component in ordee to apply forces, reset velocity...
-        anim = GetComponent<Animator>();
-        movementInput = GetComponent<MovementInput>();  // Get the MovementInput component
+        
         AgentArea = transform.parent;
         Target = AgentArea.Find(TargetTag);
         if (Target == null)
@@ -64,24 +58,20 @@ public class Agent1 : Agent
     
     public override void OnActionReceived(ActionBuffers actionBuffers)
     {
-        // Actions, size = 2
-        Vector3 controlSignal = Vector3.zero;
-        controlSignal.x = actionBuffers.ContinuousActions[0];  // continuous action 0 mapping, we have 2 continuous actions in editor behaviour parameters.
-        controlSignal.z = actionBuffers.ContinuousActions[1];
-        // rBody.AddForce(controlSignal * forceMultiplier); // this actually defines the continuous by applying force to the agent.
-        InputX = controlSignal.x;
-        InputZ = controlSignal.z;
-        // Animate based on network-provided input
-                                //anim.SetFloat("InputX", InputX, HorizontalAnimSmoothTime, Time.deltaTime);
-                                //anim.SetFloat("InputZ", InputZ, VerticalAnimTime, Time.deltaTime);
-        
+       // Actions, size = 2
+        float moveX = Mathf.Clamp(actionBuffers.ContinuousActions[0], -1f, 1f);
+        float moveZ = Mathf.Clamp(actionBuffers.ContinuousActions[1], -1f, 1f);
+
+        // Create movement vector
+        Vector3 movement = new Vector3(moveX, 0f, moveZ).normalized * speed * Time.deltaTime;
+
+        // Update position
+        transform.localPosition += movement;
+
         // Rewards
         float distanceToTarget = Vector3.Distance(this.transform.localPosition, Target.localPosition);
         
-        movementInput.InputX = InputX;
-        movementInput.InputZ = InputZ;
-        movementInput.PlayerMoveAndRotation();
-        movementInput.InputMagnitude();
+       
         // Reached target
         if (distanceToTarget < 1.42f)
         {
