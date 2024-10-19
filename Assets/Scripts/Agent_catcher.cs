@@ -23,7 +23,7 @@ public class Agent1 : Agent
     
 
     void Start () {
-        rBody = GetComponent<Rigidbody>(); // Get the Rigidbody component in ordee to apply forces, reset velocity...
+        //rBody = GetComponent<Rigidbody>(); // Get the Rigidbody component in ordee to apply forces, reset velocity...
         
         AgentArea = transform.parent;
         Target = AgentArea.Find(TargetTag);
@@ -45,7 +45,7 @@ public class Agent1 : Agent
         episodeManager.resetEpisode();
         this.transform.localPosition = new Vector3(Random.value * 12 - 4,0.5f,Random.value * 12 - 4);
 
-        rBody.velocity = Vector3.zero;  // Reset the velocity
+        //rBody.velocity = Vector3.zero;  // Reset the velocity
         timer = 0f;
     }
     public override void CollectObservations(VectorSensor sensor)

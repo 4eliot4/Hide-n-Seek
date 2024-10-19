@@ -44,5 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34cd3f2d4fb0f49d3a260eefb447e7b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hiderAgent: {fileID: 0}
-  catcherAgent: {fileID: 0}
+  hiderAgent: {fileID: 3903038482421478497, guid: 1a2154bc94a7a4586908b88554fe7b48, type: 3}
+  catcherAgent: {fileID: 6663574709173523141, guid: 0d995796d014d4a298d417b369cdcc5c, type: 3}

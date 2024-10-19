@@ -1,0 +1,51 @@
+{
+    "JammoCatcher": {
+        "checkpoints": [
+            {
+                "steps": 26752,
+                "file_path": "results/HidenSeek_Simpler_1CUBE_V1/JammoCatcher/JammoCatcher-26752.onnx",
+                "reward": null,
+                "creation_time": 1729346877.369159,
+                "auxillary_file_paths": [
+                    "results/HidenSeek_Simpler_1CUBE_V1/JammoCatcher/JammoCatcher-26752.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 26752,
+            "file_path": "results/HidenSeek_Simpler_1CUBE_V1/JammoCatcher.onnx",
+            "reward": null,
+            "creation_time": 1729346877.369159,
+            "auxillary_file_paths": [
+                "results/HidenSeek_Simpler_1CUBE_V1/JammoCatcher/JammoCatcher-26752.pt"
+            ]
+        }
+    },
+    "JammoHider": {
+        "checkpoints": [
+            {
+                "steps": 26752,
+                "file_path": "results/HidenSeek_Simpler_1CUBE_V1/JammoHider/JammoHider-26752.onnx",
+                "reward": null,
+                "creation_time": 1729346877.428747,
+                "auxillary_file_paths": [
+                    "results/HidenSeek_Simpler_1CUBE_V1/JammoHider/JammoHider-26752.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 26752,
+            "file_path": "results/HidenSeek_Simpler_1CUBE_V1/JammoHider.onnx",
+            "reward": null,
+            "creation_time": 1729346877.428747,
+            "auxillary_file_paths": [
+                "results/HidenSeek_Simpler_1CUBE_V1/JammoHider/JammoHider-26752.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "1.0.0",
+        "torch_version": "1.13.1"
+    }
+}
